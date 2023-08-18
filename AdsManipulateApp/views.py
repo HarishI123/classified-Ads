@@ -45,6 +45,3 @@ def signout(request):
      logout(request)
      return redirect("signin")
 
-def upload(request):
-     pass
-     

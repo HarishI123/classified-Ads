@@ -56,6 +56,14 @@ a:hover{
     display: none;
 }
 
+.upload{
+    width: 100px;
+    height: 100px;
+    background-color: #fff;
+    color:#302b63 ;
+}
+
+
 @media (max-width:952px){
     label.logo{
         font-size:30px;
@@ -92,7 +100,6 @@ a:hover{
         left:0;
     }
 }
-
 
 
 
