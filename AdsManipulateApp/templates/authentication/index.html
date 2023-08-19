@@ -13,6 +13,224 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
+    <style>
+        .card {
+            position: relative;
+            width: 11.875em;
+            height: 16.5em;
+            box-shadow: 0px 1px 13px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: all 120ms;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+            padding: 0.5em;
+            padding-bottom: 3.4em;
+            margin: 25px 0 35px 0;
+
+        }
+
+        .card::after {
+            content: "Add to Cart";
+            padding-top: 1.25em;
+            padding-left: 1.25em;
+            position: absolute;
+            left: 0;
+            bottom: -60px;
+            background: #0f0c29;
+            color: #fff;
+            height: 2.5em;
+            width: 90%;
+            transition: all 80ms;
+            font-weight: 600;
+            text-transform: uppercase;
+            opacity: 0;
+        }
+
+        .card .title {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.9em;
+            position: absolute;
+            left: 0.625em;
+            bottom: 1.875em;
+            font-weight: 400;
+            color: #000;
+        }
+
+        .card .price {
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-size: 0.9em;
+            position: absolute;
+            left: 0.625em;
+            bottom: 0.625em;
+            color: #000;
+        }
+
+        .card:hover::after {
+            bottom: 0;
+            opacity: 1;
+        }
+
+        .card:active {
+            transform: scale(0.98);
+        }
+
+        .card:active::after {
+            content: "Added !";
+            height: 3.125em;
+        }
+
+        .text {
+            max-width: 55px;
+        }
+
+        .image {
+            background: rgb(225, 209, 209);
+            width: 100%;
+            height: 100%;
+            display: grid;
+            place-items: center;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+        }
+
+        .intro {
+            width: 100%;
+            height: 500px;
+            display: flex;
+        }
+
+        .intro img {
+            margin: 100px 50px 0 150px;
+            width: 300px;
+            height: 300px;
+        }
+
+        .bar {
+            height: 30px;
+            width: 400px;
+            display: flex;
+            cursor: pointer;
+            padding: 10px 20px;
+            background-color: #fff;
+            border-radius: 30px;
+            align-items: center;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            margin: 300px 0 0 250px;
+        }
+
+        .bar:hover input {
+            width: 400px;
+        }
+
+        .bar input {
+            width: 0;
+            outline: none;
+            border: none;
+            font-weight: 500;
+            transition: 0.8s;
+            background: transparent;
+
+        }
+
+        /* @media (max-width:1245px) {
+            .bar {
+                margin: 60px 0 0 130px;
+
+            }
+
+            } */
+        @media (max-width:952px) {
+            .intro img {
+                position: relative;
+                margin: 150px 50px 0 150px;
+                width: 300px;
+                height: 300px;
+            }
+
+            .bar {
+                margin: 0;
+                margin: 60px 0px 0 150px;
+                position: absolute;
+                width: 300px;
+
+            }
+        }
+
+        @media (max-width:858px) {
+    
+            .intro img {
+                position: relative;
+                margin: 150px 35px 0 100px;
+                width: 300px;
+                height: 300px;
+            }
+
+            .bar {
+                margin: 0;
+                margin: 60px 0px 0 100px;
+                position: absolute;
+                width: 300px;
+
+            }
+            #check:checked~body {
+                display: block;
+            }
+
+            .checkbtn {
+                display: block;
+            }
+
+            ul {
+                position: fixed;
+                width: 100%;
+                height: 100vh;
+                background: #302b63;
+                top: 80px;
+                left: -100%;
+                text-align: center;
+                transition: all .5s;
+            }
+
+            nav ul li {
+                display: block;
+            }
+
+            nav ul li a {
+                font-size: 20px;
+                margin: 50px;
+                line-height: 30px;
+            }
+
+            #check:checked~ul {
+                left: 0;
+                z-index: 9999;
+            }
+            .intro .title-1{
+                margin: 60px 0px 0 100px;
+                padding-top: 500px;
+                position: absolute;
+                width: 300px;
+                font-size: 30px;
+        }
+
+        .title-1 {
+            color: #fff;
+            font-family: 'Sacramento', cursive;
+            font-size: 60px;
+            font-weight: bold;
+            position: absolute;
+            margin: 200px 0 25px 700px;
+        }
+    </style>
 </head>
 
 <body>
@@ -27,17 +245,108 @@
             <li><a href="{% url 'home' %}">Home</a></li>
             <li><a href="">Profile</a></li>
             <li><a href="signup/">My Cart</a></li>
-            <li><a class="hover-me" href="signin/">Sell</a></li>
+            <li class="hover-me"><a href="">Sell</a></li>
             <li><a href="{% url 'signout' %}">Logout</a></li>
         </ul>
     </nav>
-    <!-- upload hover -->
-    <div class="upload">
-        harish
+    <div class="intro">
+        <img src="{% static 'intro_image.png' %}" alt="intro_image">
+        <p class="title-1">Buy or Sell any products.</p>
+        <div class="bar">
+            <input type="text" placeholder="Search...">
+            <a href="#">
+                <i class="fas fa-search" aria-hidden="true"></i>
+            </a>
+        </div>
     </div>
-
-
-
+    <div class="container">
+        <div class="card">
+            <div class="image"><span class="text">This is a chair.</span></div>
+            <span class="title">Cool Chair</span>
+            <span class="price">$100</span>
+        </div>
+        <div class="card">
+            <div class="image"><span class="text">This is a chair.</span></div>
+            <span class="title">Cool Chair</span>
+            <span class="price">$100</span>
+        </div>
+        <div class="card">
+            <div class="image"><span class="text">This is a chair.</span></div>
+            <span class="title">Cool Chair</span>
+            <span class="price">$100</span>
+        </div>
+        <div class="card">
+            <div class="image"><span class="text">This is a chair.</span></div>
+            <span class="title">Cool Chair</span>
+            <span class="price">$100</span>
+        </div>
+    </div>
+    <div class="container">
+        <div class="card">
+            <div class="image"><span class="text">This is a chair.</span></div>
+            <span class="title">Cool Chair</span>
+            <span class="price">$100</span>
+        </div>
+        <div class="card">
+            <div class="image"><span class="text">This is a chair.</span></div>
+            <span class="title">Cool Chair</span>
+            <span class="price">$100</span>
+        </div>
+        <div class="card">
+            <div class="image"><span class="text">This is a chair.</span></div>
+            <span class="title">Cool Chair</span>
+            <span class="price">$100</span>
+        </div>
+        <div class="card">
+            <div class="image"><span class="text">This is a chair.</span></div>
+            <span class="title">Cool Chair</span>
+            <span class="price">$100</span>
+        </div>
+    </div>
+    <div class="container">
+        <div class="card">
+            <div class="image"><span class="text">This is a chair.</span></div>
+            <span class="title">Cool Chair</span>
+            <span class="price">$100</span>
+        </div>
+        <div class="card">
+            <div class="image"><span class="text">This is a chair.</span></div>
+            <span class="title">Cool Chair</span>
+            <span class="price">$100</span>
+        </div>
+        <div class="card">
+            <div class="image"><span class="text">This is a chair.</span></div>
+            <span class="title">Cool Chair</span>
+            <span class="price">$100</span>
+        </div>
+        <div class="card">
+            <div class="image"><span class="text">This is a chair.</span></div>
+            <span class="title">Cool Chair</span>
+            <span class="price">$100</span>
+        </div>
+    </div>
+    <div class="container">
+        <div class="card">
+            <div class="image"><span class="text">This is a chair.</span></div>
+            <span class="title">Cool Chair</span>
+            <span class="price">$100</span>
+        </div>
+        <div class="card">
+            <div class="image"><span class="text">This is a chair.</span></div>
+            <span class="title">Cool Chair</span>
+            <span class="price">$100</span>
+        </div>
+        <div class="card">
+            <div class="image"><span class="text">This is a chair.</span></div>
+            <span class="title">Cool Chair</span>
+            <span class="price">$100</span>
+        </div>
+        <div class="card">
+            <div class="image"><span class="text">This is a chair.</span></div>
+            <span class="title">Cool Chair</span>
+            <span class="price">$100</span>
+        </div>
+    </div>
 
 </body>
 
