@@ -1,13 +1,14 @@
 pipeline{
     agent any
-    triggers{
+    
+    triggers{
         githubPush()
     }
     stages{
         stage("Checkout"){
             steps{
                 checkout scm
-            }
-        }
-    }
+             }
+}
+}
 }
