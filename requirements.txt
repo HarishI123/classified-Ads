@@ -1,3 +1,5 @@
 django=4.0
 pillow
 os
+gunicorn
+whitenoise
